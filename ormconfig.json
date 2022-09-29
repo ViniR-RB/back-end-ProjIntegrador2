@@ -1,0 +1,18 @@
+{
+    "type" : "postegres",
+    "host" : "localhost",
+    "port" : 5432,
+    "username": "vinicius",
+    "password": "docker",
+    "database": "bootcamp",
+    "migrations" : [
+        "./src/database/migrations/*.ts"
+    ],
+    "cli" : {
+
+        "migrationsDir" : "./src/database/migrations"
+    }
+
+
+
+}
