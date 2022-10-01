@@ -1,8 +1,9 @@
 import express from 'express'
 import router from './modules/routers/router';
 import "reflect-metadata"
-import {DataSource} from 'typeorm'
+import {DataSource, Timestamp} from 'typeorm'
 import AppDataSource from './databases';
+import Appointment from './models/Appointment';
 
 const app = express()
 app.use(express.json());
@@ -18,7 +19,12 @@ app.get('/', (req,res) => {
 app.use(router);
 
 
-const db =  AppDataSource
+const db =  async () => {
+   await AppDataSource.initialize()
+
+}
+db;
+
 
 app.listen(port,() =>{
     console.log( `Rodando em : https://localhost:${port}`);

@@ -1,21 +1,29 @@
 import { DataSource } from "typeorm";
+import Appointment from "../models/Appointment";
+import { CreateAppointment1664641790675 } from "./migrations/1664641790675-CreateAppointment";
+
 
 const AppDataSource = new DataSource({
-    type : "postgres",
+    type: "postgres",
     host: "localhost",
-    port : 5432,
-    username: "vinicius",
-    password: "docker",
+    port: 5432,
+    username: "postgres",
+    password: "admin2309",
     database: "bootcamp",
+    entities: [Appointment],
     migrations: [
-        "./src/database/migrations/*.ts"
+        "./src/databases/migrations/*.ts"
     ],
-    
+
+
+
 
 
 
 
 });
-AppDataSource.initialize().then(() => console.log('Conectou')).catch((err) => console.log(err));
+AppDataSource.initialize().then(() => console.log('database run')).catch((e) => console.log('error', e))
+export default AppDataSource
 
-export default AppDataSource;
+
+

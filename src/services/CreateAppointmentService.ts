@@ -22,10 +22,10 @@ export default class CreateAppointmentService {
 
 
 
-        const findAppointmentSameDate = appointmentsRepository.findAppointmente(appointmentDate);
+        const findAppointmentSameDate = await appointmentsRepository.findAppointmente(appointmentDate);
 
 
-        if(await findAppointmentSameDate){
+        if(findAppointmentSameDate){
             throw new Error('This appointment is already broked')
         }
 
