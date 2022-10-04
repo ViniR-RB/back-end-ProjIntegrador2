@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import Appointment from "../models/Appointment";
-import { CreateAppointment1664641790675 } from "./migrations/1664641790675-CreateAppointment";
+import User from "../models/User";
+
 
 
 const AppDataSource = new DataSource({
@@ -10,20 +11,18 @@ const AppDataSource = new DataSource({
     username: "postgres",
     password: "admin2309",
     database: "bootcamp",
-    entities: [Appointment],
+    entities: [
+        Appointment, User
+    ],
     migrations: [
         "./src/databases/migrations/*.ts"
     ],
 
-
-
-
-
-
-
 });
-AppDataSource.initialize().then(() => console.log('database run')).catch((e) => console.log('error', e))
+
 export default AppDataSource
+
+
 
 
 

@@ -1,1 +1,7 @@
-node_modules postegres
+node_modules/
+postegres/
+.ideal/
+buid/
+.vscode/
+temp/*
+!tmp/.gitkeep
